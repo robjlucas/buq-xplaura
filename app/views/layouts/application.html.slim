@@ -10,4 +10,20 @@ html
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
 
   body
+    header.site-header
+      .top-bar-right.text-right
+        - if signed_in?
+          ' Logged in as #{current_user.email} |
+          = button_to sign_out_path, method: :delete do
+            ' Log out
+    .row
+      section.flash-messages
+        - {notice: "success", alert: "alert"}.each do |type, klass|
+          - if flash[type]
+            .flash-message.callout class=klass
+              h1.flash-message__text = flash[type]
+        - if flash[:errors].present?
+          - flash[:errors].each do |message|
+            .flash-message.callout.error
+              .flash-message__text = message
     = yield
