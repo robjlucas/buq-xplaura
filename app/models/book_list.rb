@@ -18,6 +18,13 @@ class BookList < ApplicationRecord
     end
   end
 
+  def file_url
+    @_file_url ||= begin
+      file.retrieve_from_store!(id)
+      file.url
+    end
+  end
+
   private def check_isbns
     csv = CSV.parse(file.read, headers: true)
 
