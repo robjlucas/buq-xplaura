@@ -13,6 +13,8 @@ html
     header.site-header
       .top-bar-right.text-right
         - if signed_in?
+          = link_to book_lists_path do
+            ' View my book lists |
           ' Logged in as #{current_user.email} |
           = button_to sign_out_path, method: :delete do
             ' Log out

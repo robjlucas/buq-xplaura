@@ -11,6 +11,13 @@ class BookList < ApplicationRecord
 
   validate :check_isbns
 
+  def csv
+    @_csv ||= begin
+      file.retrieve_from_store!(id)
+      CSV.parse(file.read, headers: true)
+    end
+  end
+
   private def check_isbns
     csv = CSV.parse(file.read, headers: true)
 
