@@ -33,7 +33,8 @@ spec/examples.txt
 
 # Media dirs (public and private)
 /public/system
-/storage
+/public/uploads/
+/storage/
 
 /public/packs
 /public/packs-test

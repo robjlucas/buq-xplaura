@@ -1,0 +1,9 @@
+class FileUploader < CarrierWave::Uploader::Base
+  def store_dir
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/"
+  end
+
+  def filename
+    model.id.to_s
+  end
+end
