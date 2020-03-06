@@ -1,0 +1,17 @@
+h1 = book_list.name
+
+table
+  thead
+    tr
+      th Author
+      th Title
+      th Publisher
+      th Date published
+      th ISBN
+  - book_list.csv.each do |book|
+    tr
+      td = format_author_name(book)
+      td = book["title"]
+      td = book["publisher"]
+      td = book["date_published"]
+      td = book["isbn"]

@@ -1,0 +1,7 @@
+h1 Upload a new book list
+
+= simple_form_for :book_list, url: book_list do |f|
+  = f.input :user_id, as: :hidden, value: book_list.user.id
+  = f.input :name, label: "List name"
+  = f.input :file, as: :file, label: "Upload CSV file"
+  = f.button :submit

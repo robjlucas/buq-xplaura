@@ -1,0 +1,14 @@
+h1 = "#{current_user.email}'s book lists"
+
+table
+  thead
+    tr
+      th Book list
+      th Updated at
+  tbody
+  - book_lists.each do |book_list|
+    tr
+      td = link_to book_list.name, book_list
+      td = l book_list.updated_at
+
+= link_to "Upload new book list", new_book_list_path
