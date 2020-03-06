@@ -1,5 +1,7 @@
 # Buq Xplaura
 
+![Test](https://github.com/robjlucas/buq-xplaura/workflows/Test/badge.svg)
+
 This is just a toy app to demonstrate:
 
 * uploading of files to S3 using Carrierwave
