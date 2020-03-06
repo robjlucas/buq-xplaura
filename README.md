@@ -1,24 +1,7 @@
-# README
+# Buq Xplaura
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is just a toy app to demonstrate:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* uploading of files to S3 using Carrierwave
+* use of UUIDs as model IDs
+* calling an arbitrary URL asynchronously to notify about the upload
