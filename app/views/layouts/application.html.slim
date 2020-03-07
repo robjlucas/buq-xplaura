@@ -4,28 +4,36 @@ html
   head
     title Buq Xplaura
     = csrf_meta_tags
-    = csrf_meta_tags
+    = csp_meta_tag
 
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
-  body
-    header.site-header
-      .top-bar-right.text-right
-        - if signed_in?
-          = link_to book_lists_path do
-            ' View my book lists |
-          ' Logged in as #{current_user.email} |
-          = button_to sign_out_path, method: :delete do
-            ' Log out
+  body.container
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light.row.justify-content-between
+      h1.navbar-brand.col-lg-6.col-sm-8 Buq Xplaura
+
+      button.navbar-toggler type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'
+        span.navbar-toggler-icon
+
+      .collapse.navbar-collapse.col-lg-6.col-sm-4#navbarSupportedContent
+        ul.navbar-nav.mr-auto.row.justify-content-end
+          - if signed_in?
+            li.nav-item.active.col-md-3.col-sm-12
+              = link_to book_lists_path do
+                ' My book lists
+            li.nav-item.col-md-6.col-sm-12 Logged in as #{current_user.email}
+            li.nav-item.col-md-3.col-sm-12
+              = button_to sign_out_path, method: :delete, class: 'btn btn-secondary' do
+                ' Log out
     .row
       section.flash-messages
         - {notice: "success", alert: "alert"}.each do |type, klass|
           - if flash[type]
-            .flash-message.callout class=klass
-              h1.flash-message__text = flash[type]
+            .flash-message.text-white.bg-danger = flash[type]
         - if flash[:errors].present?
           - flash[:errors].each do |message|
-            .flash-message.callout.error
-              .flash-message__text = message
+            .flash-message.text-white.bg-danger = message
     = yield
