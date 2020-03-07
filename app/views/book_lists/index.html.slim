@@ -1,6 +1,6 @@
-h1 = "#{current_user.email}'s book lists"
+h1.display-3 = "#{current_user.email}'s book lists"
 
-table
+table.book-list.table-dark.table-striped
   thead
     tr
       th Book list
@@ -11,4 +11,4 @@ table
       td = link_to book_list.name, book_list
       td = l book_list.updated_at
 
-= link_to "Upload new book list", new_book_list_path
+= link_to "Upload new book list", new_book_list_path, class: 'btn btn-secondary'

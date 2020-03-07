@@ -1,0 +1,15 @@
+h1.display-3 = t(".title")
+
+.col-md-8.justify-content-lg-center
+  = simple_form_for @user do |form|
+    .form-group
+      = form.input :email, input_html: {class: "form-control"}
+
+    .form-group
+      = form.input :password, input_html: {class: "form-control"}
+
+    .form-group
+      = form.button :submit, class: "btn btn-primary"
+
+    .btn-group
+      = link_to t(".sign_in"), sign_in_path, class: "btn btn-secondary"

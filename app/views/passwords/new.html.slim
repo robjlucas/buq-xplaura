@@ -1,0 +1,12 @@
+h1.display-3 = t(".title")
+
+p = t(".description")
+
+.col-md-8.justify-content-lg-center
+  = simple_form_for :password, url: passwords_path do |form|
+
+    .form-group
+      = form.input :email, input_html: {class: "form-control"}
+
+    .form-group
+      = form.button :submit, class: "btn btn-primary"
